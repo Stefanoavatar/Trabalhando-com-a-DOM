@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>Curso de Javascript</title>
+    </head>
+    <body>
+        <input type="text" name="nome">
+        <button onClick="adicionar()">Adicionar</button>
+    <!--<div id="app">
+            <input type="text" name="nome" class="nome" id="nome"/>
+            <button class="botao" id="botao">Adicionar</button>
+            
+            <div id="app2">
+
+            </div>        
+        </div>
+
+        
+
+       
+        <script>
+            //var campoTexto = document.getElementById('nome');//Pega o elemento pelo ID
+            //var campoTexto = document.getElementsByTagName('input')[0]; //Esse método sempre retorna um vetor, devido a existência de mais de uma tag do tipo pedido. Se quiser o primeiro, é preciso definir o índice, como no exemplo.
+            //var campoTexto = document.getElementsByClassName('nome')//Pega o elemento pela classe. Também retorna um vetor e segue a mesma ideia anterior.
+            
+            var campoTexto = document.querySelector('body div#app input[name=nome]');
+            var botao = document.querySelector('body div#app button');
+            
+
+            botao.onclick = function(){
+                
+                alert(campoTexto.value);
+            }         
+        </script>
+
+        <script>
+
+            var linkElement = document.createElement("a");
+            linkElement.setAttribute('href', 'https://skylab.rocketseat.com.br');
+
+            var textElement = document.createTextNode("Acessar o site da Rocketseat");            
+            linkElement.appendChild(textElement);
+
+            var container = document.querySelector("#app");
+            container.appendChild(linkElement);
+            container.removeChild(linkElement);
+
+        </script>
+
+        <script>
+
+            var container2 = document.querySelector("#app2");
+
+            container2.style.width = 250;
+            container2.style.height = 100;
+            container2.style.backgroundColor = '#002233';
+        </script>
+        
+
+        <script>
+            //COMES E BEBES
+            /*1º exercício
+              Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+              vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+              aparecer na tela.
+            */
+
+            var body = document.querySelector('body');
+            var containerDoBotao = document.createElement('div');
+            var botaoDoQuadrado = document.createElement('button');
+            var textoBotao = document.createTextNode('Criar quadrado');            
+            
+            containerDoBotao.style.width = 200;
+            containerDoBotao.style.height = 100;
+            //containerDoBotao.style.backgroundColor = '#333333';
+            botaoDoQuadrado.style.width = 80;
+            botaoDoQuadrado.style.height = 40;       
+            
+            body.appendChild(containerDoBotao);
+            containerDoBotao.appendChild(botaoDoQuadrado);
+            botaoDoQuadrado.appendChild(textoBotao);            
+            
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
+            var newColor = getRandomColor(); // #E943F0
+            console.log(newColor);              
+            
+            
+            botaoDoQuadrado.onclick = function(){
+
+                var quadrado = document.createElement('div');
+                quadrado.style.width = 100;
+                quadrado.style.height = 100;
+                quadrado.style.marginBottom = 1;
+                quadrado.style.backgroundColor = '#FF0000';
+                                
+                body.appendChild(quadrado);
+                console.log(quadrado);                
+
+                quadrado.onmouseenter = function(){
+                    console.log('Você passou o cursor do mouse sobre o quadrado!');
+                    console.log(newColor);
+                    newColor.toString();
+                    this.style.backgroundColor = newColor;
+                }              
+            }       
+        </script>
+        -->
+        <script>
+            /*COMES E BEBES*/
+            var body = document.querySelector('body');
+            /*A partir do vetor: var nomes = ["Diego", "Gabriel", "Lucas"];
+            
+            Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+                ● Diego
+                ● Gabriel
+                ● Lucas
+            */         
+            
+//=====================================================================
+            var campoTexto = document.querySelector('input');
+            var botao = document.querySelector('button');
+            
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var ul = document.createElement('ul');
+
+            nomes.forEach(function(nome){
+                var li = document.createElement('li');
+                li.textContent = nome;
+
+                ul.appendChild(li);            
+            });
+            
+            function adicionar(){
+                var novoLi = document.createElement('li');
+                novoLi.textContent = campoTexto.value;                
+
+                ul.appendChild(novoLi);
+                campoTexto.value = '';
+            }
+
+            body.appendChild(ul);
+
+        </script>
+    </body>
+</html>
